@@ -17,10 +17,10 @@
                 <a-sphere position='-1 0.5 0' radius='0.25' material='color: red;'></a-sphere>
                 <a-entity class="boxClass" geometry="" material="src:https://aframe.io/sample-assets/assets/images/bricks/brick_bump.jpg" position="0 0 0" scale="0.396 0.3604 0.97009"></a-entity>
         </a-marker>
-        <!--<a-assets>
-            <a-asset-item id="model1" src="https://cdnrawgit.com/KeithFrostY/TestARjs/blob/master/entity.glb"></a-asset-item>
-            <a-asset-item id="model2" src="https://github.com/KeithFrostY/TestARjs/blob/master/redBox.glb"></a-asset-item>
-        </a-assets>-->
+        <a-assets>
+            <a-asset-item id="model1" src="https://keithfrosty.github.io/TestARjs/entity.glb"></a-asset-item>
+            <a-asset-item id="model2" src="https://keithfrosty.github.io/TestARjs/redBox.glb"></a-asset-item>
+        </a-assets>
         <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
         <a-assets>
             <video id="alpha" autoplay loop="true" src="https://stemkoski.github.io/AR-Examples/video/sintel.mp4" crossorigin="anonymous"></video>
@@ -35,7 +35,7 @@
             <a-sky color="#ECECEC"></a-sky>
         </a-scene>
 </body>
-    <script>
+<script>
     
     function play(id){
       var aVideoAsset = document.querySelector('#' + id);
