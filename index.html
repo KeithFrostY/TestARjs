@@ -40,9 +40,6 @@ AFRAME.registerComponent('markerhandler', {
     if (document.querySelector("#hiroMarker").object3D.visible == true && playing == false) {
       videoScreen.addEventListener('click', function () { playPauseVideo(); console.log("Video Play Toggle") });
       playing = true;
-
-    }
-
     }else {
       // MARKER IS HIDDEN, do nothing (up to you)
     }
