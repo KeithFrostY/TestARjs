@@ -11,22 +11,21 @@
 </head>
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs="debugUIEnabled:false; scourceType: webcam;">
+            <a-assets>
+            <a-asset-item id="model1" src="/TestARjs/entity.glb"></a-asset-item>
+            <a-asset-item id="model2" src="/TestARjs/redBox.glb"></a-asset-item>
+            <video id="alpha" autoplay loop="true" src="/TestARjs/sintel.mp4" crossorigin="anonymous"></video>
+        </a-assets>
+        
         <!--<a-marker preset="custom" typeof="pattern" url="/Users/keithyeung/Desktop/pattern-marker.patt">-->
         <a-marker preset="hiro">
             <a-sphere position='1 0.5 0' radius='0.25' material='color: blue;'></a-sphere>
             <a-sphere position='-1 0.5 0' radius='0.25' material="src: https://aframe.io/sample-assets/assets/images/wood/crate.gif"></a-sphere>
             <a-entity class="boxClass" geometry="" material="src:https://aframe.io/sample-assets/assets/images/bricks/brick_bump.jpg" position="0 0 0" scale="0.396 0.3604 0.97009"></a-entity>
-            <a-video id="vid" position="0 1 0" rotation="-62.584 -3.936 4.509" scale="1 1 1" src="#alpha">
+            <a-video id="vid" position="0 1 0" rotation="-62.584 -3.936 4.509" scale="3 2 1" src="#alpha">
                 <video scale="1 1 1" src="#source"></video>
             </a-video>
         </a-marker>
-        <a-assets>
-            <a-asset-item id="model1" src="/TestARjs/entity.glb"></a-asset-item>
-            <a-asset-item id="model2" src="/TestARjs/redBox.glb"></a-asset-item>
-            <video id="alpha" autoplay loop="true" src="/TestARjs/sintel.mp4" crossorigin="anonymous"></video>
-        </a-assets>
-            <a-entity id="floor" geometry="primitive: box; height: 0.1; depth: 2; width: 2"
-                      material="src: https://aframe.io/sample-assets/assets/images/wood/crate.gif"></a-entity>
             <a-entity camera></a-entity>
             <a-sky color="#ECECEC"></a-sky>
         </a-scene>
