@@ -34,6 +34,11 @@
       var v = document.querySelector('#video');
       v.play();
     });
+    
+    document.getElementById('vid').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+        document.location.href = 'https://www.creote.com/web/';
+    }
 </script>
 <!--<script>
 AFRAME.registerComponent('vidhandler', {
