@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Test_AR_Ver 1.0.18</title>
+    <title>Test_AR_Ver 1.1.0</title>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@master/dist/aframe-master.min.js"></script>
@@ -30,10 +30,11 @@
         </a-scene>
 </body>
 <script>
+    var v;
     window.addEventListener('click', function () {
-        var v = document.querySelector('#video');
+        v = document.querySelector('#video');
         //document.location.href = 'https://www.creote.com/web/';
-        if(v.paused != true){
+        if(v.paused == true){
             timerId = setInterval(countdown, 1000);
             v.play();
         }
@@ -41,20 +42,20 @@
     
     document.getElementById('vid').addEventListener('ended',myHandler,false);
     function myHandler(e) {
-        console.log('End Of Video!');
-        document.location.href = 'https://www.creote.com/web/';
+        console.log('End Of Vid!');
+        //document.location.href = 'https://www.creote.com/web/';
     }
     document.getElementById('video').addEventListener('ended',myHandler,false);
     function myHandler(e) {
-        console.log('End Of Video!');
-        document.location.href = 'https://www.creote.com/web/';
+        console.log('End Of video!');
+        //document.location.href = 'https://www.creote.com/web/';
     }
 
     var timeLeft = 52;
     var timerId;// = setInterval(countdown, 1000);
     
     function countdown() {
-        if (timeLeft == -1) {
+        if (timeLeft <= -1) {
             clearTimeout(timerId);
             doSomething();
         } else {
@@ -65,11 +66,13 @@
 
     function doSomething() {
         alert("Video Finished");
-        console.log('End Of Video!');
-        if (confirm('Are you want to connect Our Website?')) {
-            document.location.href = 'https://www.creote.com/web/';
-        } else {
-            // Do nothing!
+        if(v.paused() == true){
+            if (confirm('Are you want to connect Our Website?')) {
+                document.location.href = 'https://www.creote.com/web/';
+            } else {
+                timeLeft = 52;
+                v.play();
+            }
         }
     }
     
