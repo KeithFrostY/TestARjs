@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Test_AR_Ver 1.1.1</title>
+    <title>Test_AR_Ver 1.1.3</title>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@master/dist/aframe-master.min.js"></script>
@@ -30,23 +30,26 @@
         </a-scene>
 </body>
 <script>
+    ///On Click To Start Video
     var v;
     window.addEventListener('click', function () {
         v = document.querySelector('#video');
         //document.location.href = 'https://www.creote.com/web/';
         if(v.paused == true){
-            timerId = setInterval(countdown, 1000);
+            //timerId = setInterval(countdown, 1000);
             v.play();
         }
     });
     
+    ///End Of Video Event
     document.getElementById('video').addEventListener('ended',myHandler,false);
     function myHandler(e) {
         console.log('End Of video!');
         document.location.href = 'https://www.creote.com/web/';
     }
-
-    var timeLeft = 52;
+    
+    /// Time Count Event
+   /* var timeLeft = 52;
     var timerId;// = setInterval(countdown, 1000);
     
     function countdown() {
@@ -69,10 +72,11 @@
                 v.play();
             }
         }
-    }
+    }*/
     
 </script>
 <!--<script>
+///Have better than this
 AFRAME.registerComponent('vidhandler', {
 
   init: function() {
