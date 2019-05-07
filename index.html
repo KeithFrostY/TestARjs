@@ -14,34 +14,47 @@
             <a-assets>
             <a-asset-item id="model1" src="/TestARjs/entity.glb"></a-asset-item>
             <a-asset-item id="model2" src="/TestARjs/redBox.glb"></a-asset-item>
-            <video id="alpha" autoplay loop="true" src="/TestARjs/sintel.mp4" crossorigin="anonymous"></video>
+            <video id="video"  autoplay loop="true" src="/TestARjs/sintel.mp4"></video><!-- crossorigin="anonymous"-->
         </a-assets>
         
         <!--<a-marker preset="custom" typeof="pattern" url="/Users/keithyeung/Desktop/pattern-marker.patt">-->
-        <a-marker preset="hiro" vidhandler emitevents="true" id="hiroMarker">
+        <a-marker preset='hiro' vidhandler emitevents="true" id="hiroMarker">
             <a-sphere position='1.5 0.5 0' radius='0.25' material='color: blue;'></a-sphere>
             <a-sphere position='-2 0.5 0' radius='0.25' material="src: https://aframe.io/sample-assets/assets/images/wood/crate.gif"></a-sphere>
             <a-entity class="boxClass" geometry="" material="src:https://aframe.io/sample-assets/assets/images/bricks/brick_bump.jpg" position="0 0 0" scale="0.396 0.3604 0.97009"></a-entity>
-            <a-video id="vid" position="-1 1 0" rotation="-62.584 -3.936 4.509" scale="3 2 1" src="#alpha">
-                <video scale="1 1 1" src="#source"></video>
-            </a-video>
+            <a-video id="vid" position="-1 1 0" rotation="-62.584 -3.936 4.509" scale="3 2 1" 
+                     src="#video" width="3" height="2" autoplay=true></a-video>
         </a-marker>
             <a-entity camera></a-entity>
             <a-sky color="#ECECEC"></a-sky>
         </a-scene>
 </body>
-    <script>
-        AFRAME.registerComponent('vidhandler', {
-            init: function() {
-                this.toggle = false;
-                this.vid = document.querySelector("#vid");
-                this.vid.pause();
-            },
-            tick: function() {
-                if (document.querySelector("#hiroMarker").object3D.visible == true){
-                    vid.play();
-                }
-            }
-        });
-    </script>
+<script>
+AFRAME.registerComponent('markerhandler', {
+
+  init: function() {
+    this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+  },
+
+  tick: function(t, dt) {
+    if (document.querySelector("#hiroMarker").object3D.visible == true && playing == false) {
+      videoScreen.addEventListener('click', function () { playPauseVideo(); console.log("Video Play Toggle") });
+      playing = true;
+
+    }
+
+    }else {
+      // MARKER IS HIDDEN, do nothing (up to you)
+    }
+
+});
+
+function playPauseVideo(){
+
+if (video.paused)
+    video.play();
+  else
+    video.pause();
+}
+</script>
 </html>
