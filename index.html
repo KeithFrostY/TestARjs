@@ -31,23 +31,32 @@
             <a-sky color="#ECECEC"></a-sky>
         </a-scene>
 </body>
-<script>
-    AFRAME.registerComponent('vid', {
-  init: function () {
-    this.toggle = false;
-    document.querySelector("#vid").pause(); //reference to the video
-  },
-  tick:function(){  
-   if(document.querySelector("a-marker").object3D.visible == true){
-     if(!this.toggle){
-       this.toggle = true;
-       document.querySelector("#vid").play();
-     }
-   }else{
-     this.toggle = false;
-     document.querySelector("#vid").pause();
-   }
-  }
-});
-</script>  
+    <script>
+        AFRAME.registerComponent('vidhandler', {
+            init: function() {
+                this.toggle = false;
+                this.vid = document.querySelector("#vid");
+                this.vid.pause();
+            },
+            tick: function() {
+                if (this.el.object3D.visible == true) {
+                    if (!this.toggle) {
+                        this.toggle = true;
+                        this.vid.play();
+                    }
+                } else {
+                    this.toggle = false;
+                    this.vid.pause();
+                }
+            }
+        });
+
+        function refrespage() {
+            location.reload();
+        }
+
+        function playvid() {
+            vid.play();
+        }
+    </script>
 </html>
