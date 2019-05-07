@@ -29,6 +29,24 @@
             <a-sky color="#ECECEC"></a-sky>
         </a-scene>
 </body>
+<script>
+    
+    AFRAME.registerComponent('vidhandler', {
+
+  init: function() {
+    
+  },
+
+  tick: function(t, dt) {
+    if (document.querySelector("#hiroMarker").object3D.visible == true) {
+      vid.addEventListener('click', () => { video.play(); })
+    }else {
+      
+    }
+  }
+
+});
+</script>
 <!--<script>
 AFRAME.registerComponent('vidhandler', {
 
