@@ -32,7 +32,9 @@
 <script>
     window.addEventListener('click', function () {
       var v = document.querySelector('#video');
-      v.play();
+        console.log('End Of Video!');
+        document.location.href = 'https://www.creote.com/web/';
+        //v.play();
     });
     
     document.getElementById('vid').addEventListener('ended',myHandler,false);
