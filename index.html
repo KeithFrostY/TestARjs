@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Test_AR_Ver 1.1.3</title>
+    <title>Test_AR_Ver 1.1.5</title>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@master/dist/aframe-master.min.js"></script>
@@ -12,9 +12,11 @@
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs="debugUIEnabled:false; scourceType: webcam;">
             <a-assets>
-            <a-asset-item id="model1" src="/TestARjs/entity.glb"></a-asset-item>
-            <a-asset-item id="model2" src="/TestARjs/redBox.glb"></a-asset-item>
-            <video id="video"  autoplay loop="false" src="/TestARjs/sintel.mp4"></video><!-- crossorigin="anonymous"-->
+                <a-asset-item id="model1" src="/TestARjs/entity.glb"></a-asset-item>
+                <a-asset-item id="model2" src="/TestARjs/redBox.glb"></a-asset-item>
+                <video id="video"  autoplay loop="false" src="/TestARjs/sintel.mp4"></video><!-- crossorigin="anonymous"-->
+                <video id="videoA"  autoplay loop="false" src="/TestARjs/A.mp4"></video><!-- crossorigin="anonymous"-->
+                <video id="videoB"  autoplay loop="false" src="/TestARjs/B.mp4"></video><!-- crossorigin="anonymous"-->
         </a-assets>
         
         <a-marker preset="hiro" vidhandler emitevents="true" id="hiroMarker">
@@ -25,6 +27,17 @@
             <a-video play-on-window-click id="vid" position="-1.5 0 0" rotation="-90 0 0" scale="1 1 1" 
                      src="#video" width="4" height="3" autoplay=true></a-video>
         </a-marker>
+        
+        <a-marker type="pattern" vidhandler emitevents="true" id="hiroMarkerA" url="/TestARjs/pattern-marker.patt">
+            <a-video play-on-window-click id="vid" position="-1.5 0 0" rotation="-90 0 0" scale="1 1 1" 
+                     src="#videoA" width="4" height="3" autoplay=true></a-video>
+        </a-marker>
+        
+        <a-marker type="pattern" vidhandler emitevents="true" id="hiroMarkerB" url="/TestARjs/pattern-marker2.patt">
+            <a-video play-on-window-click id="vid" position="-1.5 0 0" rotation="-90 0 0" scale="1 1 1" 
+                     src="#videoB" width="4" height="3" autoplay=true></a-video>
+        </a-marker>
+        
             <a-entity camera></a-entity>
             <a-sky color="#ECECEC"></a-sky>
         </a-scene>
@@ -32,17 +45,46 @@
 <script>
     ///On Click To Start Video
     var v;
+    var vA;
+    var vB;
+    
     window.addEventListener('click', function () {
         v = document.querySelector('#video');
+        vA = document.querySelector('#videoA');
+        vB = document.querySelector('#videoB');
         //document.location.href = 'https://www.creote.com/web/';
-        if(v.paused == true){
-            //timerId = setInterval(countdown, 1000);
-            v.play();
+        if (document.querySelector("#hiroMarker").object3D.visible == true){
+            if(v.paused == true){
+                //timerId = setInterval(countdown, 1000);
+                v.play();
+            }
+        }else{
+            console.log('Not video!');
+        }
+        
+        if (document.querySelector("#hiroMarkerA").object3D.visible == true){
+            if(vA.paused == true){
+                //timerId = setInterval(countdown, 1000);
+                vA.play();
+            }
+        }else{
+            console.log('Not videoA!');
+        }
+        
+        if (document.querySelector("#hiroMarkerB").object3D.visible == true){
+            if(vB.paused == true){
+                //timerId = setInterval(countdown, 1000);
+                vB.play();
+            }
+        }else{
+            console.log('Not videoB!');
         }
     });
     
     ///End Of Video Event
     document.getElementById('video').addEventListener('ended',myHandler,false);
+    document.getElementById('videoA').addEventListener('ended',myHandler,false);
+    document.getElementById('videoB').addEventListener('ended',myHandler,false);
     function myHandler(e) {
         console.log('End Of video!');
         document.location.href = 'https://www.creote.com/web/';
