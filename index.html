@@ -33,7 +33,7 @@
     window.addEventListener('click', function () {
         var v = document.querySelector('#video');
         //document.location.href = 'https://www.creote.com/web/';
-        if(v.paused() != true){
+        if(v.paused != true){
             timerId = setInterval(countdown, 1000);
             v.play();
         }
