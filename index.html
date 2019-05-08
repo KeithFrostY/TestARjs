@@ -19,8 +19,8 @@
                 <video id="videoB"  autoplay loop="false" src="/TestARjs/B.mp4"></video><!-- crossorigin="anonymous"-->
         </a-assets>
         
-        <a-marker preset="hiro" vidhandler emitevents="true" id="hiroMarker">
-        <!--<a-marker type="pattern" vidhandler emitevents="true" id="hiroMarker"  url="/TestARjs/pattern-marker.patt">-->
+        <!--<a-marker preset="hiro" vidhandler emitevents="true" id="hiroMarker">-->
+        <type="pattern" vidhandler emitevents="true" id="hiroMarkerB" Url="/TestARjs/pattern-marker11.patt">
             <a-sphere position='1.5 0.5 0' radius='0.25' material='color: blue;'></a-sphere>
             <a-sphere position='1.5 0.5 0' radius='0.25' material="src: https://aframe.io/sample-assets/assets/images/wood/crate.gif"></a-sphere>
             <a-entity class="boxClass" geometry="" material="src:https://aframe.io/sample-assets/assets/images/bricks/brick_bump.jpg" position="0 0 0" scale="0.396 0.3604 0.97009"></a-entity>
@@ -28,7 +28,7 @@
                      src="#video" width="4" height="3" autoplay=true></a-video>
         </a-marker>
         
-        <a-marker type="pattern" vidhandler emitevents="true" id="hiroMarkerA" Url="/TestARjs/pattern-marker10.patt">
+        <!--<a-marker type="pattern" vidhandler emitevents="true" id="hiroMarkerA" Url="/TestARjs/pattern-marker10.patt">
             <a-video play-on-window-click id="vidA" position="0 0 0" rotation="-90 0 0" scale="1 1 1" 
                      src="#videoA" width="4" height="3" autoplay=true></a-video>
         </a-marker>
@@ -36,7 +36,7 @@
         <a-marker type="pattern" vidhandler emitevents="true" id="hiroMarkerB" Url="/TestARjs/pattern-marker11.patt">
             <a-video play-on-window-click id="vidB" position="0 0 0" rotation="-90 0 0" scale="1 1 1" 
                      src="#videoB" width="4" height="3" autoplay=true></a-video>
-        </a-marker>
+        </a-marker>-->
         
             <a-entity camera></a-entity>
             <a-sky color="#ECECEC"></a-sky>
@@ -50,8 +50,8 @@
     
     window.addEventListener('click', function () {
         v = document.querySelector('#video');
-        vA = document.querySelector('#videoA');
-        vB = document.querySelector('#videoB');
+        //vA = document.querySelector('#videoA');
+        //vB = document.querySelector('#videoB');
         //document.location.href = 'https://www.creote.com/web/';
         if (document.querySelector("#hiroMarker").object3D.visible == true){
             if(v.paused == true){
@@ -63,7 +63,7 @@
             console.log('Not video!');
         }
         
-        if (document.querySelector("#hiroMarkerA").object3D.visible == true){
+        /*if (document.querySelector("#hiroMarkerA").object3D.visible == true){
             if(vA.paused == true){
                 //timerId = setInterval(countdown, 1000);
                 vA.play();
@@ -81,7 +81,7 @@
         }else{
             vB.pause();
             console.log('Not videoB!');
-        }
+        }*/
     });
     
     ///End Of Video Event
