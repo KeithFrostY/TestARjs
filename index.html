@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Test_AR_Ver 1.4.6</title>
+    <title>Test_AR_Ver 1.4.7</title>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
@@ -15,30 +15,17 @@
         <a-assets>
                 <a-asset-item id="model1" src="/TestARjs/entity.glb"></a-asset-item>
                 <a-asset-item id="model2" src="/TestARjs/redBox.glb"></a-asset-item>
-                <a-asset-item id="light01" src="/TestARjs/light01.glb" crossOrigin="anonymous"></a-assest-item>
-                <a-asset-item id="light02" src="/TestARjs/light02.glb" crossOrigin="anonymous"></a-assest-item>
-                <a-asset-item id="light03" src="/TestARjs/light03.glb" crossOrigin="anonymous"></a-assest-item>
-                <a-asset-item id="light04" src="/TestARjs/light04.glb" crossOrigin="anonymous"></a-assest-item>
+                <a-asset-item id="house" src="http://www.creote.com/projects/webar/projects/webar/Asset/Model/HotelIcon_bake.glb" crossOrigin="anonymous"></a-assest-item>
                 <video id="videoA"  autoplay loop="false" src="/TestARjs/A.mp4"></video><!-- crossorigin="anonymous"-->
                 <video id="videoB"  autoplay loop="false" src="/TestARjs/B.mp4"></video><!-- crossorigin="anonymous"-->
         </a-assets>
         
-        <!--<a-marker preset="hiro">
+        <a-marker preset="hiro">
             <!--<a-anchor hit-testing-enabled="true">-->
-                <a-obj-model src="/TestARjs/OBJ_001/HotelICon_bake.obj" 
-                             mtl="/TestARjs/OBJ_001/HotelICon_bake.mtl"
-                             position="0 0.5 0"
-                             scale="0.25 0.25 0.25"
-                            >
-                </a-obj-model>
+                <a-entity src="/projects/webar/Asset/Model/HotelIcon_bake.glb" crossOrigin="anonymous"></a-entity>
                 <!--<a-gltf-model src="#light01"></a-gltf-model>
-                <a-gltf-model src="#light02"></a-gltf-model>
-                <a-gltf-model src="#light03"></a-gltf-model>
-                <a-gltf-model src="#light04"></a-gltf-model>-->
-        
-
             <!--</a-anchor>-->
-        <!--</a-marker>-->
+        </a-marker>
         
         <a-marker type="pattern" vidhandler emitevents="true" id="hiroMarkerA" Url="/TestARjs/pattern-marker10.patt">
             <a-video play-on-window-click id="vidA" position="0 0 0" rotation="-90 0 0" scale="1 1 1" 
