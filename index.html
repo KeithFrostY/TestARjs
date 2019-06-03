@@ -17,11 +17,9 @@
                 <video id="videoB"  autoplay loop="false" src="/TestARjs/B.mp4"></video><!-- crossorigin="anonymous"-->
         </a-assets>
         
-        <!--<a-marker preset="hiro">
-            <!--<a-anchor hit-testing-enabled="true">-->
-                <!--<a-gltf-model src="#light01"></a-gltf-model>
-            <!--</a-anchor>-->
-        <!--</a-marker>-->
+        <a-marker preset="hiro">
+                <a-gltf-model src="#light01"></a-gltf-model>
+        </a-marker>
         
         <a-marker type="pattern" vidhandler emitevents="true" id="hiroMarkerA" Url="/TestARjs/pattern-marker.patt">
             <a-video play-on-window-click id="vidA" position="0 0 0" rotation="-90 0 0" scale="1 1 1" 
